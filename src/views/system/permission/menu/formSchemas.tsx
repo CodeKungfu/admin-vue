@@ -97,14 +97,22 @@ export const useMenuSchemas = (): FormSchema<API.MenuAddParams>[] => [
     field: 'keepalive',
     component: 'Switch',
     label: '是否缓存',
-    defaultValue: true,
+    defaultValue: 1,
+    componentProps: {
+      checkedValue: 1,
+      unCheckedValue: 0,
+    },
     vIf: ({ formModel }) => isMenu(formModel['type']),
   },
   {
     field: 'isExt',
     component: 'Switch',
     label: '是否外链',
-    defaultValue: false,
+    defaultValue: 0,
+    componentProps: {
+      checkedValue: 1,
+      unCheckedValue: 0,
+    },
     colProps: {
       span: 12,
     },
@@ -138,7 +146,11 @@ export const useMenuSchemas = (): FormSchema<API.MenuAddParams>[] => [
     field: 'isShow',
     component: 'Switch',
     label: '是否显示',
-    defaultValue: true,
+    defaultValue: 1,
+    componentProps: {
+      checkedValue: 1,
+      unCheckedValue: 0,
+    },
     vIf: ({ formModel }) => !isPerm(formModel['type']),
   },
   {
